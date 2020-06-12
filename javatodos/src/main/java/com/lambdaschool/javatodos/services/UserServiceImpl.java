@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> getAllUsers() {
         List<User> list = new ArrayList<>();
-        userrepos.findAll().iterator().forEachRemaining(list::add);//comes back as iterator then converts to arraylist
+        userrepos.findAll().iterator().forEachRemaining(list::add);
         return list;
     }
 
@@ -41,13 +41,13 @@ public class UserServiceImpl implements UserService{
     public User save(User user) {
         User newUser = new User();
 
-        //Saves all the current details
+
         newUser.setUsername(user.getUsername());
         newUser.setPassword(user.getPassword());
         newUser.setPrimaryemail(user.getPrimaryemail());
-        //Tod0 must exist
 
-        //loops and Adds the tod0 that the user wants saved to their tod0 list
+
+
         for (Todo t: user.getTodos() ){
 
             Todo newTodo = new Todo(t.getDescription(), newUser);
@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService{
 
     }
 
-    //Updates the user, very similar to above
+
     @Override
     public User update(User user, long id) {
         User updateUser = new User();
